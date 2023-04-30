@@ -10,12 +10,12 @@
     {{#each blogs as |blog|}}
     <div class="basic-card">
         <div class="'basic-card-head">
-            <h3>{{blog.title}}</h3>
-            <p>POsted by {{userName}} on {{formate_date publish_date}}</p>
+            <h3>{{blog.blog_title}}</h3>
+            <p>POsted by {{username}} on {{formate_date blog.updatedAt}}</p>
         </div>
 
         <div class="basic-body">
-            <p>{{blog.blog_content}}</p>
+            <p>{{blog.blog_body}}</p>
         </div>
         <button class="post-delete" data-id="{{post.id}}">DELETE</button>
     </div>

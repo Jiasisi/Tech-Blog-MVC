@@ -32,7 +32,7 @@ router.get('/blog/:id', withAuth, async (req, res) => {
                         'id', 
                         'blog_id',
                         'comment_content',
-                        'userName',
+                        'user_id',
                         'comment_date',
                     ],
                 },
@@ -81,7 +81,7 @@ router.get('/login', async (req, res) => {
       res.render('dashboard', {
         ...user,
         logged_in: req.session.logged_in,
-        logged_in_user: req.session.username
+        logged_in_user: req.session.user_id
       });
     } catch (err) {
       res.status(500).json(err);
@@ -92,7 +92,7 @@ router.get('/login', async (req, res) => {
     try {
       res.render('new_post', {
         logged_in: req.session.logged_in,
-        logged_in_user: req.session.username
+        logged_in_user: req.session.user_id
       });
     } catch (err) {
       console.log(err);

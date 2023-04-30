@@ -3,7 +3,7 @@ const { Blog } = require('../../models');
 
 router.post('/create', async (req, res) => {
   try {
-    const newPost = await Blog.create({...req.body, username: req.session.username});
+    const newPost = await Blog.create({...req.body, user_id: req.session.user_id});
 
     res.status(200).json(newPost);
   } catch (err) {
@@ -16,7 +16,7 @@ router.delete('/:id', async (req, res) => {
     const postData = await Blog.destroy({
       where: {
         id: req.params.id,
-        username: req.session.username,
+        user_id: req.session.user_id,
       },
     });
 

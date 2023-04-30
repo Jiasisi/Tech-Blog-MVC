@@ -5,7 +5,7 @@ const { User } = require('../../models');
 router.post('/', async (req, res) => {
   try {
     const dbUserData = await User.create({
-      username: req.body.username,
+      user_id: req.body.user_id,
       
       password: req.body.password,
     });
@@ -27,14 +27,14 @@ router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
       where: {
-        username: req.body.username,
+        user_id: req.body.user_id,
       },
     });
 
     if (!dbUserData) {
       res
         .status(400)
-        .json({ message: 'Incorrect username or password. Please try again!' });
+        .json({ message: 'Incorrect user_id or password. Please try again!' });
       return;
     }
 
