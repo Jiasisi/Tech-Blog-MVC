@@ -70,8 +70,7 @@
     flex: 4;
     background-color: #fff;
     padding: 50px;
-    display: flex;
-    flex-flow: row wrap;
+    display: block;
     justify-content: center;
     align-items: center;
   }
@@ -153,6 +152,16 @@
     padding-bottom: 30px;
     padding-right: 100px;
     padding-left: 100px;
+    
+  }
+
+  .blog-content {
+
+  }
+
+  .blog-date {
+    color: black;
+    display: block;
   }
   
   /* LAYOUT */
