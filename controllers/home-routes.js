@@ -29,8 +29,8 @@ router.get('/blog/:id', withAuth, async (req, res) => {
                     attributes: [
                         'id', 
                         'blog_id',
-                        'comment_comtent',
-                        'username',
+                        'comment_content',
+                        'userName',
                         'comment_date',
                     ],
                 },
@@ -38,7 +38,7 @@ router.get('/blog/:id', withAuth, async (req, res) => {
         });
 
         const blog = dbBlogData.get({ plain: true });
-        res,render('blog', { blog, loggedIn: req.session.loggedIn});
+        res.render('blog', { blog, loggedIn: req.session.loggedIn});
 
     } catch (err) {
         console.log(err);

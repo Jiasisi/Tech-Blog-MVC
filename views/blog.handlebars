@@ -1,7 +1,14 @@
-<section class="container">
+<section class="card">
     <h3 class="blog-name">{{title}}</h3>
     
     <p class="blog-content">{{blog_content}}</p>
     <p class="blog-date">{{publish-date}}</p>
 
-</section>
+
+{{#each blog.comments as |comment|}}
+<section class="card">
+    {{> comment comment}}
+{{/each}}
+
+
+
