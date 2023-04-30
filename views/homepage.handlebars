@@ -1,16 +1,13 @@
 <section>
-    {{#each blogs as |blog|}}
-    <div class="basic-card">
-        <div class="basic-card-head">
-            <h3>{{blog.blog-title}}</h3>
-            <p>POsted by {{blog.user.username}} on {{formate_date blog.updatedAt}}</p>
-        
-        </div>
-        <div class="basic-body">
-            <p>{{blog.blog_body}}</p>
-        </div>
+  {{#each posts as |post|}}
+  <div class="basic-card">
+    <div class="basic-card-head">
+      <h2>{{post.post_title}}</h2>
+      <p>Posted by {{post.user.username}} on {{format_date post.updatedAt}}</p>
     </div>
-
-    
-    {{/each}} 
+    <div class="basic-body">
+      <p>{{post.post_body}}</p>
+    </div>
+  </div>
+  {{/each}}
 </section>

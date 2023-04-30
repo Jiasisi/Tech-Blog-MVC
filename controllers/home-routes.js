@@ -72,7 +72,7 @@ router.get('/login', async (req, res) => {
     try {
       const userData = await User.findByPk(req.session.user_id, {
         attributes: { exclude: ['password'] },
-        include: [ Post ],
+        include: [ Blog ],
       });
   
       const user = userData.get({ plain: true });
@@ -88,9 +88,9 @@ router.get('/login', async (req, res) => {
     }
   });
   
-  router.get('/new_post', async (req, res) => {
+  router.get('/new_blog', async (req, res) => {
     try {
-      res.render('new_post', {
+      res.render('new_blog', {
         logged_in: req.session.logged_in,
         logged_in_user: req.session.user_id
       });

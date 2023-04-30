@@ -2,52 +2,38 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Blog</title>
-    <link rel="stylesheet" type="text/css" href="/css/jass.css">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MVC: Tech Blog</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
 <body>
-    <header>
-        
-        <div class="nav-title">
+  <header>
+    <div class="nav-title">
+      <nav>
+        <a href="/">Home</a>
+        {{#if logged_in }}
+        <a href="/dashboard">Dashboard</a>
+        <button id="logout">logout</button>
+        {{else}}
+        <a href="/login">Login/SignUp</a>
+        {{/if}}
+      </nav>
+      <h1>TECH BLOG</h1>
+      {{#if logged_in }}
+      <h3>{{logged_in_user}}</h3>
+      {{/if}}
+    </div>
+  </header>
 
-        
-            <nav>
-                <a href="/">Home</a>
-                <a href="/dashboard">Dashboard</a>
-                {{#if loggedIn}}
-                <button id="logout" class="btn-no-style">Logout</button>
-                {{else}}
-                <a href="/login">Login</a>
-                {{/if}}
-
-            </nav>
-
-            <h1>The Tech Blog</h1>
-        </div>
-    </header>
-
-    <main>
-        <div class="blog">
-            {{{body}}}
-        </div>
-    </main>
-
-    {{#if loggedIn}}
-    <script src="/js/logout.js"></script>
-    {{/if}}
-
+  <main>
+      {{{body}}}
+  </main>
 </body>
 
 </html>
 
-
-
-
-
-
-</html>
+{{#if logged_in}}
+  <script src="/js/logout.js"></script>
+{{/if}}
