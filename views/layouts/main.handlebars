@@ -25,11 +25,18 @@
 
     </nav>
 
-
+    <main>
+        <div class="blog">
+            {{{body}}}
+        </div>
+    </main>
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 
 </body>
 
-
+</html>
 
 
 
