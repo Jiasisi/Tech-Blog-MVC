@@ -17,14 +17,13 @@ const loginFormHandler = async (event) => {
         alert('Failed to log in.');
       }
     }
-};
+  };
   
-const signupFormHandler = async (event) => {
+  const signupFormHandler = async (event) => {
     event.preventDefault();
   
-    const username = document.querySelector('#username-signup').value.trim();
-    
-    const password = document.querySelector('#password-signup').value.trim();
+    const username = document.querySelector('#signup-username-input').value.trim();
+    const password = document.querySelector('#signup-password-input').value.trim();
   
     if (username && password) {
       const response = await fetch('/api/users', {
@@ -39,13 +38,14 @@ const signupFormHandler = async (event) => {
         alert('Failed to sign up.');
       }
     }
-};
+  };
   
-document
-    .querySelector('.login-form')
-    .addEventListener('submit', loginFormHandler);
+  const loginBtn = document.getElementById("login-btn") 
+  if (loginBtn) {
+    loginBtn.addEventListener("click", loginFormHandler);
+  }
   
-document
-    .querySelector('.signup-form')
-    .addEventListener('submit', signupFormHandler);
-  
+  const signupBtn = document.getElementById("signup-btn")
+  if (signupBtn) {
+    signupBtn.addEventListener("click", signupFormHandler);
+  }

@@ -1,0 +1,28 @@
+
+<div class="create-post">
+    <button id="new-post-btn">New Post</button>
+
+</div>
+
+
+{{#if blogs.length}}
+<section id="posts-list">
+    {{#each blogs as |blog|}}
+    <div class="basic-card">
+        <div class="'basic-card-head">
+            <h3>{{blog.title}}</h3>
+            <p>POsted by {{userName}} on {{formate_date publish_date}}</p>
+        </div>
+
+        <div class="basic-body">
+            <p>{{blog.blog_content}}</p>
+        </div>
+        <button class="post-delete" data-id="{{post.id}}">DELETE</button>
+    </div>
+    {{/each}}
+</section>
+{{/if}}
+
+<script src="./js/dashboard.js"></script>
+
+
